@@ -18,7 +18,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/manifest.json">
+    <!-- <link rel="manifest" href="/manifest.json"> -->
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <title>NACOSS | Federal University of Lafia</title>
@@ -30,9 +30,13 @@
     <style type="text/css">
         .big{
             font-size: 120px;
-            color: #FFE793;
+            color: red;
         }
     </style>
+    <script type="text/javascript" src="assets/js/w3Inculde.js"></script>
+    <script type="text/javascript" src="assets/js/vue.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+
 </head>
 
 <body>
@@ -41,38 +45,38 @@
         <div role="main">
             <div class="jumbotron j-contact">
                 <div class="container">
-                    <h1 class="display-3">Materials</h1>
-                    <p>Ranging from lecture notes, past questions and tutorial questions. Get all the materials you need here. Exclusive to members only
+                    <h1 class="display-3">NACOSS FULafia Blog</h1>
+                    <p>
                         <br> Any queries? Reach out to us!</p>
                     </div>
                 </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <h2>About NACOSS | FULafia</h2>
-                          <p>  Nigeria Association of Computer Science Students is a body of Nigerian students studying computer science at various tertiary institutions Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </p>
-                        <p>
-                            Created on 15th Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </p>
-                            <p><a class="btn btn-lg btn-primary" href="https://www.nacoss.org.ng" target="_blank" role="button">Official website for NACOSS National &raquo;</a></p>
+                 <div class="container marketing" id="post">
+
+             <section v-if="errored" class="text-center">
+                    <i class="fa fa-warning big"></i>
+                    <p>Sorry, the post you are looking for is either deleted or does not exist</p>
+                </section>
+
+                <section v-else>
+                    <div v-if="loading">Loading contents...</div>
+                    <div v-else>
+                        <div class="row">
+                        <div class="col-lg-8" style="margin-left: 100px">
+                            <img :src="getImage(post.imageLink)" width="80%" height="100px" class="img-fluid center">
+                            <h2>{{post.post_title}}</h2>
+                            <p v-html="post.post_content"></p>
                         </div>
                     </div>
+                    <br><br><br>
+                </div>
+                </section>
+            </div>
              <div w3-include-html="footer.html" ></div>
                     <script>
                         includeHTML();
                     </script>
             </div>
+            <script type="text/javascript" src="assets/js/post.js"></script>
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
         </body>
