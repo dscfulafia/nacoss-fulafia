@@ -18,7 +18,7 @@ var example1=new Vue({
       return virtualDiv.innerText.substring(0,300)+"....";
     },
     getImage (imageURL) {
-      return (imageURL == null) ? "assets/gallery/no-image.jpg" : API_URL+"../wordpress/wp-content/uploads/"+imageURL;
+      return (imageURL == null) ? "assets/gallery/no-image.jpg" : API_URL+"../wp-content/uploads/"+imageURL;
     }
 
   },

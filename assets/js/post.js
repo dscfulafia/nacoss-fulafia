@@ -15,7 +15,7 @@ var example1=new Vue({
   },
   methods: {
     getImage (imageURL) {
-      return (imageURL == null) ? "assets/gallery/no-image.jpg" : API_URL+"../wordpress/wp-content/uploads/"+imageURL;
+      return (imageURL == null) ? "assets/gallery/no-image.jpg" : API_URL+"../wp-content/uploads/"+imageURL;
     }
   },
   mounted () {
