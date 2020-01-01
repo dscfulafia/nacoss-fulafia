@@ -1,4 +1,4 @@
-var API_URL = "http://nacoss-ful.000webhostapp.com/api/";
+var API_URL = "https://nacoss-ful.000webhostapp.com/api/";
 
 var example1=new Vue({
   el: '#post',

@@ -2,7 +2,7 @@ var thisUrl=window.location.href;
 var url=new URL(thisUrl);
 var page_id=url.searchParams.get("id");
 
-var API_URL = "http://nacoss-ful.000webhostapp.com/api/";
+var API_URL = "https://nacoss-ful.000webhostapp.com/api/";
 
 var example1=new Vue({
   el: '#post',
