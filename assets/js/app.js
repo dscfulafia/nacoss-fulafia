@@ -1,4 +1,5 @@
 var API_URL = "https://nacoss-ful.000webhostapp.com/api/";
+// var API_URL = "http://localhost/nacoss/api/";
 
 var example1=new Vue({
   el: '#post',
@@ -19,6 +20,7 @@ var example1=new Vue({
     },
     getImage (imageURL) {
       return (imageURL == null) ? "assets/gallery/no-image.jpg" : API_URL+"../wp-content/uploads/"+imageURL;
+      // return (imageURL == null) ? "assets/gallery/no-image.jpg" : API_URL+"../wordpress/wp-content/uploads/"+imageURL;
     }
 
   },
