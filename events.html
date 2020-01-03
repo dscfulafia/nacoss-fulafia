@@ -35,6 +35,15 @@
     </style>
     <script type="text/javascript" src="assets/js/w3Inculde.js"></script>
     <script type="text/javascript" src="assets/js/vue.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/vue-lazyload/vue-lazyload.js"></script>
+    <script>
+      Vue.use(VueLazyload, {
+        preLoad: 2.3,
+        loading: 'assets/gallery/4V0b.gif',
+        attempt: 2,
+        listenEvents: ['scroll', 'wheel', 'mousewheel', 'resize', 'animationend', 'transitionend' ]
+        })
+    </script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
 
 </head>
@@ -56,7 +65,6 @@
                     <i class="fa fa-warning big"></i>
                     <p>Sorry cannot load posts at the moment. Kindly check back later</p>
                 </section>
-
                 <section v-else>
                     <div v-if="loading">
                     <i class="fa fa-plus-circle fa-spin big"></i>
@@ -64,7 +72,9 @@
                     <div v-else v-for="post in posts" >
                         <div class="row">
                         <div class="col-lg-5 offset-lg-1">
-                            <img :src="getImage(post.imageLink)" width="100%" height="230px" class="img-fluid">
+                        <div v-lazy-container="{ selector: 'img'}">
+                            <img :data-src="getImage(post.imageLink)" width="100%" height="230px" class="img-fluid"> 
+                          </div>
                         </div>
                         <div class="col-lg-5">
                             <h2>{{post.post_title}}</h2>
@@ -79,8 +89,10 @@
              <div w3-include-html="footer.html" ></div>
                     <script>
                         includeHTML();
+                    
                     </script>
             </div>
+           
             <script type="text/javascript" src="assets/js/app.js"></script>
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
