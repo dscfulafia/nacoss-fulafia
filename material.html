@@ -18,7 +18,6 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <title>NACOSS | Federal University of Lafia</title>
@@ -33,6 +32,10 @@
             color: #FFE793;
         }
     </style>
+
+        <script type="text/javascript" src="assets/js/w3Inculde.js"></script>
+    <script type="text/javascript" src="assets/js/vue.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script> 
 </head>
 
 <body>
@@ -46,123 +49,45 @@
                         <br> Any queries? Reach out to us!</p>
                     </div>
                 </div>
-                <div class="container">
-                     
-                        <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Course</th>
-        <th>Files</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>
-            <i class="fa fa-folder-open big"></i><br>
-            CSC 228 Computer programming 2 Introduction
-        </td>
-        <td colspan="2"> 
-            <div class="list-group">
-              <a href="#" class="list-group-item">
-                <i class="fa fa-download"></i>
-                Harry Effionk Distro intro to OOp 3rd edition for tertiary institution 2019.pdf
-                </a>
-              <a href="#" class="list-group-item">
-                <i class="fa fa-download"></i>
-                Harry Effionk Distro intro to OOp 3rd edition for tertiary institution 2019.pdf
-                </a>
-              <a href="#" class="list-group-item">
-                <i class="fa fa-download"></i>
-                Harry Effionk Distro intro to OOp 3rd edition for tertiary institution 2019.pdf
-                </a>
-              <a href="#" class="list-group-item">
-                <i class="fa fa-download"></i>
-                Harry Effionk Distro intro to OOp 3rd edition for tertiary institution 2019.pdf
-                </a>
-              <a href="#" class="list-group-item">
-                <i class="fa fa-download"></i>
-                Harry Effionk Distro intro to OOp 3rd edition for tertiary institution 2019.pdf
-                </a>
-              <a href="#" class="list-group-item">
-                <i class="fa fa-download"></i>
-                Harry Effionk Distro intro to OOp 3rd edition for tertiary institution 2019.pdf
-                </a>
-          </div>
-      </td>
-      </tr>
+                <div class="container" id="resources">
+                  
+                  <section v-if="errored" class="text-center">
+                    <i class="fa fa-warning big" style="color: red"></i>
+                    <p>No material uploaded for this level yet</p>
+                  </section>
+                <section v-else>
+                    <div v-if="loading">Loading contents...</div>
+                    <div v-else>
+                    <table class="table table-bordered" >
+                        <thead>
+                          <tr>
+                            <th>Course</th>
+                            <th>Files</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody v-for="(resource, codeCode) in resources">
+                          <tr>
+                            <td>
+                                <i class="fa fa-folder-open big"></i><br>
+                                {{codeCode}}
+                            </td>
+                            <td colspan="2"> 
+                                <div class="list-group" v-for="item in resource">
+                                  <a :href="item.filepath" class="list-group-item" target="_blank" :title="item.info">
+                                    <span v-html="getFileType(item.fileName)"></span>
+                                    {{item.fileName}} &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <i class="fa fa-download"></i>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    {{Math.trunc(item.fileSize/1024)}} kb
+                                    </a>                                  
+                              </div>
+                          </td>
+                          </tr>
 
-  <tr>
-        <td>
-            <i class="fa fa-folder-open big"></i><br>
-            CSC 228 Computer programming 2 Introduction
-        </td>
-        <td colspan="2"> 
-            <div class="list-group">
-              <a href="#" class="list-group-item">
-                <i class="fa fa-download"></i>
-                Harry Effionk Distro intro to OOp 3rd edition for tertiary institution 2019.pdf
-                </a>
-              <a href="#" class="list-group-item">
-                <i class="fa fa-download"></i>
-                Harry Effionk Distro intro to OOp 3rd edition for tertiary institution 2019.pdf
-                </a>
-              <a href="#" class="list-group-item">
-                <i class="fa fa-download"></i>
-                Harry Effionk Distro intro to OOp 3rd edition for tertiary institution 2019.pdf
-                </a>
-              <a href="#" class="list-group-item">
-                <i class="fa fa-download"></i>
-                Harry Effionk Distro intro to OOp 3rd edition for tertiary institution 2019.pdf
-                </a>
-              <a href="#" class="list-group-item">
-                <i class="fa fa-download"></i>
-                Harry Effionk Distro intro to OOp 3rd edition for tertiary institution 2019.pdf
-                </a>
-              <a href="#" class="list-group-item">
-                <i class="fa fa-download"></i>
-                Harry Effionk Distro intro to OOp 3rd edition for tertiary institution 2019.pdf
-                </a>
-          </div>
-      </td>
-      </tr>
-
-  <tr>
-        <td>
-            <i class="fa fa-folder-open big"></i><br>
-            CSC 228 Computer programming 2 Introduction
-        </td>
-        <td colspan="2"> 
-            <div class="list-group">
-              <a href="#" class="list-group-item">
-                <i class="fa fa-download"></i>
-                Harry Effionk Distro intro to OOp 3rd edition for tertiary institution 2019.pdf
-                </a>
-              <a href="#" class="list-group-item">
-                <i class="fa fa-download"></i>
-                Harry Effionk Distro intro to OOp 3rd edition for tertiary institution 2019.pdf
-                </a>
-              <a href="#" class="list-group-item">
-                <i class="fa fa-download"></i>
-                Harry Effionk Distro intro to OOp 3rd edition for tertiary institution 2019.pdf
-                </a>
-              <a href="#" class="list-group-item">
-                <i class="fa fa-download"></i>
-                Harry Effionk Distro intro to OOp 3rd edition for tertiary institution 2019.pdf
-                </a>
-              <a href="#" class="list-group-item">
-                <i class="fa fa-download"></i>
-                Harry Effionk Distro intro to OOP 3rd edition for tertiary institution 2019.pdf
-                </a>
-              <a href="#" class="list-group-item">
-                <i class="fa fa-download"></i>
-                Harry Effionk Distro intro to OOp 3rd edition for tertiary institution 2019.pdf
-                </a>
-          </div>
-      </td>
-      </tr>
-    </tbody>
-  </table>
+                        </tbody>
+                      </table>
+                    </div>
 
                   </div>
                 </div>
@@ -171,8 +96,8 @@
                         includeHTML();
                     </script>
             </div>
-            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+            <script type="text/javascript" src="assets/js/resources.js"></script>
+
         </body>
         
         </html>
