@@ -1,6 +1,3 @@
-var API_URL = "https://nacoss-ful.000webhostapp.com/api/";
-// var API_URL = "http://localhost/nacoss/api/";
-
 var example1=new Vue({
   el: '#gallery',
   data () {

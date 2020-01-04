@@ -2,9 +2,6 @@ var thisUrl=window.location.href;
 var url=new URL(thisUrl);
 var page_id=url.searchParams.get("id");
 
-// var API_URL = "http://localhost/nacoss/api/";
-var API_URL = "https://nacoss-ful.000webhostapp.com/api/";
-
 var example1=new Vue({
   el: '#post',
   data () {
@@ -16,8 +13,7 @@ var example1=new Vue({
   },
   methods: {
     getImage (imageURL) {
-      return (imageURL == null) ? "assets/gallery/no-image.jpg" : API_URL+"../wp-content/uploads/"+imageURL;
-      // return (imageURL == null) ? "assets/gallery/no-image.jpg" : API_URL+"../wordpress/wp-content/uploads/"+imageURL;
+      return (imageURL == null) ? "assets/gallery/no-image.jpg" : imageURL;
     }
   },
   mounted () {
