@@ -62,3 +62,4 @@ var example1=new Vue({
       })
       .finally(() => this.loading = false)
   }
+})
