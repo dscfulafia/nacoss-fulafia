@@ -18,119 +18,83 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/manifest.json">
+    <!-- <link rel="manifest" href="/manifest.json"> -->
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <title>NACOSS | Federal University of Lafia</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-    <script type="text/javascript" src="assets/js/w3Inculde.js"></script>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="style.css" rel="stylesheet">
+    <script type="text/javascript" src="assets/js/w3Inculde.js"></script>
+    <style type="text/css">
+        .big{
+            font-size: 120px;
+
+        }
+    </style>
+    <script type="text/javascript" src="assets/js/w3Inculde.js"></script>
+    <script type="text/javascript" src="assets/js/vue.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/vue-lazyload/vue-lazyload.js"></script>
+    <script>
+      Vue.use(VueLazyload, {
+        preLoad: 2.3,
+        loading: 'assets/gallery/4V0b.gif',
+        attempt: 2,
+        listenEvents: ['scroll', 'wheel', 'mousewheel', 'resize', 'animationend', 'transitionend' ]
+        })
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+
 </head>
 
 <body>
-    <header w3-include-html="header.html">
+   <header w3-include-html="header.html">
     </header>
-    <div role="main">
-        <div class="jumbotron j-events">
-            <div class="container">
-                <h1 class="display-3">Events</h1>
-                <p>We've in collaboration with other communities successfully organised and hosted 14+ seminars, workshops &amp; fests last year and this time around we intend to go <em>beyond!</em></p>
-                <p>
-                    Special appreciation to GDG Lafia, PHP Arewa, StartUp Nasarawa and DSC FULafia
-                </p>
-            </div>
-        </div>
-        <hr class="featurette-divider">
-        <div class="container marketing">
-            <div class="row">
-                <div class="col-lg-5 offset-lg-1">
-                    <img src="assets/events/dsc_info_session.jpg" class="img-fluid">
-                </div>
-                <div class="col-lg-5">
-                    <h2>DSC <span class="text-muted">Info session</span></h2>
-                    <p>In collaboration with Developers Students Clubs, an info session was hosted to mark the launch of the club on our campus. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <p><strong>Participation:</strong> 30 students</p>
+        <div role="main">
+            <div class="jumbotron j-contact">
+                <div class="container">
+                    <h1 class="display-3">NACOSS FULafia Blog</h1>
                     <p>
-                        <a class="btn btn-success" href="#" role="button">Read more &raquo;</a>
-<!--                         <a class="btn btn-outline-success" href="assets/report/Martin.pdf" target="_blank" role="button">View details &raquo;</a> -->
-                        <!-- <a class="btn btn-outline-info" href="assets/report/2018-19-annual-report.pdf" target="_blank" role="button">
-							Annual Report
-						</a> -->
-                    </p>
+                        <br> Any queries? Reach out to us!</p>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <hr class="featurette-divider">
-        <div class="container marketing">
-            <div class="row">
-                <div class="col-lg-5 offset-lg-1">
-                    <img src="assets/brand/logo-nacoss-fulafia.jpg" class="img-fluid">
-                </div>
-                <div class="col-lg-5">
-                    <h2> <span class="text-muted">Ethernity blockchain event</span></h2>
-                    <p>On 20<sup>th</sup> September 2019, ethernity club was Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <p><strong>Participation:</strong> 50+ students</p>
-                    <p>
-                        <a class="btn btn-success" href="#"  role="button">Read more &raquo;</a>
-                    </p>
-                </div>
-            </div>
-            <hr class="featurette-divider">
-            <div class="row">
-                <div class="col-lg-5 offset-lg-1">
-                    <h2><span class="text-muted">Congress meeting for the session</span></h2>
-                    <p>On 12<sup>th</sup> September a congress meeting was held Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <p><strong>Participation:</strong> 70+ students</p>
-                    <p>
-                        <a class="btn btn-success" href="#" role="button">Read more &raquo;</a>
-                    </p>
-                </div>
-                <div class="col-lg-5">
-                    <img src="assets/brand/logo-nacoss-fulafia.jpg" class="img-fluid">
-                </div>
-            </div>
-            <hr class="featurette-divider">
-            <div class="row">
-                <div class="col-lg-5 offset-lg-1">
-                    <img src="assets/events/softwareideapitch.jpg" class="img-fluid">
-                </div>
-                <div class="col-lg-5">
-                    <h2>Software idea pitch contest</h2>
-                    <p>The software idea pitch is a challenge Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <p><strong>Participation:</strong> 15 students</p>
-                    <p><a class="btn btn-success" href="assets/report/Praudyogiki.pdf" target="_blank" role="button">View details &raquo;</a></p>
-                </div>
-            </div>
-                    <div w3-include-html="footer.html" ></div>
-                    <script>
-                        includeHTML();
-                    </script>
-                </div>
-            </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-</body>
+                 <div class="container marketing" id="post">
 
-</html>
+                <section v-if="errored" class="text-center" style="color: red">
+                    <i class="fa fa-warning big"></i>
+                    <p>Sorry cannot load posts at the moment. Kindly check back later</p>
+                </section>
+                <section v-else>
+                    <div v-if="loading">
+                    <i class="fa fa-plus-circle fa-spin big"></i>
+                    Loading contents...</div>
+                    <div v-else v-for="post in posts" >
+                        <div class="row">
+                        <div class="col-lg-5 offset-lg-1">
+                        <div v-lazy-container="{ selector: 'img'}">
+                            <img :data-src="getImage(post.imageLink)" width="100%" height="230px" class="img-fluid"> 
+                          </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <h2>{{post.post_title}}</h2>
+                            <p>{{shortenedPostContent(post.post_content)}}</p>
+                            <p><a class="btn btn-success" :href="'post.html?id=' + post.ID" role="button">Read more &raquo;</a></p>
+                        </div>
+                    </div>
+                    <br><br><br>
+                </div>
+                </section>
+            </div>
+             <div w3-include-html="footer.html" ></div>
+                    <script>
+                        includeHTML();                    
+                    </script>
+            </div>
+           
+            <script type="text/javascript" src="assets/js/app.js"></script>
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+        </body>
+        
+        </html>

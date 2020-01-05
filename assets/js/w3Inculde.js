@@ -1,3 +1,6 @@
+// var API_URL = "https://nacoss-ful.000webhostapp.com/api/";
+var API_URL = "http://localhost/nacoss/api/";
+
 function includeHTML() {
   var z, i, elmnt, file, xhttp;
   /*loop through a collection of all HTML elements:*/
