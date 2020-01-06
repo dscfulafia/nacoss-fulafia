@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Nigeria Asociation of Computer Science Students - Federal University Lafia">
+    <!-- <meta name="description" content="Computer Society of India, GITAM Student Branch."> -->
     <link rel="apple-touch-icon" sizes="57x57" href="assets/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="assets/favicon/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="assets/favicon/apple-icon-72x72.png">
@@ -36,6 +37,16 @@
     <script type="text/javascript" src="assets/js/w3Inculde.js"></script>
     <script type="text/javascript" src="assets/js/vue.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script> 
+    <script type="text/javascript" src="https://unpkg.com/vue-lazyload/vue-lazyload.js"></script>
+    
+    <script>
+            Vue.use(VueLazyload, {
+              preLoad: 3,
+              loading: 'assets/gallery/4V0b.gif',
+              attempt: 2,
+              listenEvents: ['scroll', 'wheel', 'mousewheel', 'resize', 'animationend', 'transitionend' ]
+              })
+          </script>
 
 </head>
 
@@ -62,7 +73,9 @@
                     <div v-else>
                         <div class="row">
                         <div class="col-lg-8" style="margin-left: 100px">
-                            <img :src="getImage(post.imageLink)" width="80%" height="100px" class="img-fluid center">
+                                <div v-lazy-container="{ selector: 'img'}">
+                            <img :data-src="getImage(post.imageLink)" width="80%" height="100px" class="img-fluid center">
+                                </div>
                             <h2>{{post.post_title}}</h2>
                             <p v-html="post.post_content"></p>
                         </div>

@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Computer Society of India, GITAM Student Branch.">
+    <meta name="description" content="Nigeria Asociation of Computer Science Students - Federal University Lafia">
+    <!-- <meta name="description" content="Computer Society of India, GITAM Student Branch."> -->
     <link rel="apple-touch-icon" sizes="57x57" href="assets/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="assets/favicon/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="assets/favicon/apple-icon-72x72.png">
@@ -32,6 +33,17 @@
     <script type="text/javascript" src="assets/js/w3Inculde.js"></script>
     <script type="text/javascript" src="assets/js/vue.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+
+    <script type="text/javascript" src="https://unpkg.com/vue-lazyload/vue-lazyload.js"></script>
+    <script>
+      Vue.use(VueLazyload, {
+        preLoad: 2.3,
+        loading: 'assets/gallery/4V0b.gif',
+        attempt: 2,
+        listenEvents: ['scroll', 'wheel', 'mousewheel', 'resize', 'animationend', 'transitionend' ]
+        })
+    </script>
+
 </head>
 
 <body>
@@ -57,7 +69,10 @@
                     <div v-else>
                         <div class="row">
                         <div class="col-lg-8" style="margin-left: 100px">
-                            <p v-html="gallery.post_content"></p>
+                            <div v-lazy-container="{ selector: 'p'}">
+                                <p v-html="gallery.post_content"></p>
+                                <!-- <img :data-src="getImage(gallery.imageLink)"/> --> 
+                            </div>
                         </div>
                     </div>
                     <br><br><br>
