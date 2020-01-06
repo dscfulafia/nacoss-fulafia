@@ -1,4 +1,5 @@
 var example1=new Vue({
+  
   el: '#post',
   data () {
     return {
