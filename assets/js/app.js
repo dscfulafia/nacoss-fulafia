@@ -1,4 +1,5 @@
 var example1=new Vue({
+  
   el: '#post',
   data () {
     return {
@@ -33,4 +34,4 @@ var example1=new Vue({
       })
       .finally(() => this.loading = false)
   }
-})
+});

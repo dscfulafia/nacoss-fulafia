@@ -28,5 +28,4 @@ var example1=new Vue({
         this.errored = true
       })
       .finally(() => this.loading = false)
-  }
-})
+  }});
