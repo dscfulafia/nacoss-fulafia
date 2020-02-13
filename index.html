@@ -24,69 +24,99 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link href="style.css" rel="stylesheet">
+
+        <script type="text/javascript" src="assets/js/w3Inculde.js"></script>
+    <script type="text/javascript" src="assets/js/vue.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/vue-lazyload/vue-lazyload.js"></script>
+    <script>
+      Vue.use(VueLazyload, {
+        preLoad: 2.3,
+        loading: 'assets/gallery/4V0b.gif',
+        attempt: 2,
+        listenEvents: ['scroll', 'wheel', 'mousewheel', 'resize', 'animationend', 'transitionend' ]
+        })
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+
 </head>
 <body>
-    <script type="text/javascript" src="assets/js/w3Inculde.js"></script>
     <header w3-include-html="header.html">
     </header>
+
     <div role="main">
-        <div >
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="first-slide" src="assets/brand/meet-the-team-carousel.png">
-                    <div class="container">
-                        <div class="carousel-caption text-left">
-                            <h1>Nigeria Association of Computer Science Students | Federal University of Lafia</h1>
-                            <p>The most active student association in FULafia, filled like an ocean with programmers, creators, innovators, designers and people who want to make a difference.</p>
+        <img style="width: 100%; font-size: 23px;margin-left: 0;padding: 0" src="assets/brand/meet-the-team-carousel.png" class="img img-fluid">
+        <!-- <div class="container"> -->
+            <div style="color:white;position: absolute; top: 50% ;left: 50%;transform: translate(-50%, -50%);width: 80%;text-align: center;text-shadow: 0 3px 10px black;" >
+                <!-- <h1>Nigeria Association of Computer Science Students | Federal University of Lafia</h1> -->
+                            The most active student association in FULafia, filled like an ocean with programmers, creators, innovators, designers and people who want to make a difference.
                             <p><a class="btn btn-lg btn-primary" href="about.html" role="button">About the association</a></p>
-                        </div>
+            </div>
+                    <!-- </div> -->
+    </div>
+
+    <div class="container">
+    
+        <div class="text-center">
+            <center><h1>Latest News and Updates</h1></center>
+            <hr>
+        </div>
+        <div  id="post" >
+            <div v-if="errored" class="text-center" style="color: red">
+                <i class="fa fa-warning big"></i>
+                <p>Sorry cannot load latest news and updates at the moment.</p>
+            </div>
+
+            <div v-else class="row">
+                <div  v-for="post in posts" class="col-md-3" >
+                            <div v-lazy-container="{ selector: 'img'}">
+                                <img :data-src="getImage(post.imageLink)" width="80%" class="img-fluid" alt="Post image"> 
+                            </div>
+                            <h6>{{post.post_title}}</h6>
+                            {{shortenedPostContent(post.post_content).substring(0,50)}}
+                            <p><a :href="'post.html?id=' + post.ID" role="button">Read more &raquo;</a></p>
+                </div>
+            </div>
+
+
+        </div>
+    
+</div>
+<hr>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                        <img src="assets/brand/logo-nacoss-fulafia.jpg"  alt="NACOSS FULafia logo" class="featurette-image img-fluid mx-auto img-intro" alt="NACOSS IMAGE" style="width: 70%">
                     </div>
+                    <div class="col-md-7">
+                        <h2 class="featurette-heading">About us <span class="text-muted"> &mdash; NACOSS | FULafia</span></h2>
+                        NACOSS FULafia is the NACOSS Chapter for students studying Computer Science in Federal University of Lafia. 
+                        NACOSS FULafia started out in the 2016/2017 session with Comr. Success Emmanuel Ibrahim as the Pioneer President. 
+                        And the association in its totality has experience tremendous growth ever since.<a href="about.html">......read more</a>
+                    </div>
+
+                <div class="col-md-7">
+                    <h2 class="featurette-heading">Message from the President</h2>
+                    <p class="lead">&quot; Welcome to the official website of the NACOSS FULafia Chapter and thank you for taking the time to learn more about us. 
+											Every association has its canon. Ours is a community centred around the academic, social and overall wellbeing of our members-students of the department of Computer Science, Federal University of Lafia. 
+											Our association is a family of computer science students; regardless of religious, ethnic and ancestral background. As a member of this association, you a guaranteed a ‘WOW’ time on campus 
+											as we are  committed to getting you the best experience academically, socially and otherwise. 
+											Our website contains many resources for you to learn about us and to also reach out to us. I encourage you to visit our departmental building on campus, meet our students and staff, and see for yourself 
+											the outstanding opportunities, activities that NACOSS FULafia offers.&quot; <br> &mdash; Comr. Zinwota Timothy <i>(President NACOSS FULafia)</i></p>
                 </div>
-            </div>
-            <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-            <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-        </div>
-        </br>
-        </br>
-        <div class="container marketing">
-            <div class="row featurette">
-                <div class="col-md-4">
-                    <img src="assets/brand/logo-nacoss-fulafia.jpg" class="img img-fluid img-intro" class="featurette-image img-fluid mx-auto" alt="NACOSS FULafia logo">
-                </div>
-                <div class="col-md-8">
-                    <h2 class="featurette-heading">About us <span class="text-muted"> &mdash; NACOSS | FULafia</span></h2>
-                    <p class="lead">Nigeria Association of Computer Science Students (Federal university of Lafia chapter) was founded Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                        ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum<a href="about.html">......read more</a>
-                    </p>
-                </div>
-            </div>
-            <hr class="featurette-divider">
-            <div class="row featurette">
-                <div class="col-md-5 order-md-2">
-                    <img src="assets/gallery/hod.jpg" class="featurette-image img-fluid mx-auto img-intro" alt="Generic placeholder image">
-                </div>
-                <div class="col-md-7 order-md-1">
-                    <h2 class="featurette-heading">Message from the HOD</h2>
-                    <p class="lead">&quot; I cannot express Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                        laborum.&quot; &mdash; Mr. Agushaka <i>(HOD computer science 2016 - till date)</i></p>
+
+                <div class="col-md-5 ">
+                    <img src="assets/gallery/excos/president.jpg" class="rounded-circle" alt="Generic placeholder image" style="width: 50%">
                 </div>
             </div>
         </div>
-        <hr class="featurette-divider">
         <div w3-include-html="footer.html" >
             
         </div>
         <script>
             includeHTML();
         </script>
+            <script type="text/javascript" src="assets/js/app.js"></script>
+       
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 </body>
