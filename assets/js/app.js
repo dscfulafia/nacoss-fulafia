@@ -1,11 +1,11 @@
-var example1=new Vue({
-  
+var example1=new Vue({  
   el: '#post',
   data () {
     return {
       posts: null,
       loading: true,
-      errored: false
+      errored: false,
+      arrNumbs: [1,2,3,4]
     }
   },
   methods: {

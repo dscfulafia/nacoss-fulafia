@@ -40,10 +40,10 @@ body {
   z-index: 10; }
   .carousel-caption .btn {
     text-shadow: none; }
-  .carousel-caption h1, .carousel-caption p {
+  /*.carousel-caption h1, .carousel-caption p {
     display: inline-block;
     font-weight: bold;
-    text-shadow: 0 3px 10px black; }
+    text-shadow: 0 3px 10px black; }*/
 
 .carousel {
   margin-bottom: 4rem; }
