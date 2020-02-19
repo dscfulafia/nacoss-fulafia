@@ -44,7 +44,7 @@
     <header w3-include-html="header.html">
     </header>
     <div class="container">
-        <img src="assets/events/dsc_info_session.jpg" alt="Notebook" style="width:100%;">
+        <img class="hero-b" src="assets/brand/IO17Extended (15).JPG" alt="Notebook" style="width:100%;">
         <div class="content">
           <h1 class="h-tag">NACOSS</h1>
           <p class="p-tag"> The most active student association in FULafia, filled like an ocean with programmers, creators, innovators, designers and people who want to make a difference.</p>
@@ -73,14 +73,24 @@
                 <p>Sorry cannot load latest news and updates at the moment.</p>
             </div>
 
+
+
+
             <div v-else class="row">
-                <div  v-for="post in posts" class="col-md-3" >
-                            <div v-lazy-container="{ selector: 'img'}">
-                                <img :data-src="getImage(post.imageLink)" width="80%" class="img-fluid" alt="Post image"> 
+              <div  v-for="post in posts" class="col-md-3" >
+                <div v-lazy-container="{ selector: 'img'}">
+            <div class="card" style="width: 18rem;">
+              <img :data-src="getImage(post.imageLink)" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">{{post.post_title}}</h5>
+                <p class="card-text">                          {{shortenedPostContent(post.post_content).substring(0,50)}}</p>
+                <a :href="'post.html?id=' + post.ID" class="btn btn-primary">Read more</a>
+              </div>
+            </div>
+
+
                             </div>
-                            <h6>{{post.post_title}}</h6>
-                            {{shortenedPostContent(post.post_content).substring(0,50)}}
-                            <p><a :href="'post.html?id=' + post.ID" role="button">Read more &raquo;</a></p>
+                           
                 </div>
             </div>
 
@@ -92,66 +102,37 @@
 <div class="container">
     <div class="row">
       <div class="col">
-            <div class="card mb-3 navv" style="max-width: 540px;">
+            <div class="card mb-3 navv" style="max-width: 100%;">
                     <div class="row no-gutters">
                       <div class="col-md-4">
-                        <img src="assets/brand/logo-nacoss-fulafia.jpg" class="card-img-top rounded-circle" width="50px" height="50px" alt="...">
-                        <a href="#" target="_blank" ><i class="fa fa-facebook iconz"></i></a><br>
-                        <a href="#" ><i class="fa fa-twitter  iconz"></i></a><br>
+                        <img src="assets/brand/logo-nacoss-fulafia.jpg" width="200px" height="200px" alt="...">
+                       
                       </div>
                       <div class="col-md-8">
                         <div class="card-body">
                           <h5 class="card-title" style="font-size: 20px; font-weight: bolder; text-transform: uppercase;">About us — NACOSS | FULafia</h5>
-                          <p class="card-text">NACOSS FULafia is the NACOSS Chapter for students studying Computer Science in Federal University of Lafia. 
-                                NACOSS FULafia started out in the 2016/2017 session with Comr. Success Emmanuel Ibrahim as the Pioneer President. 
-                                And the association in its totality has experience tremendous growth ever since.     </p>
-                          <a href="about.html" class="btn btn-success">Go somewhere</a>
+                          <p class="card-text">NACOSS FULafia is the NACOSS Chapter for students studying Computer Science in Federal University of Lafia.   </p>
+                          <a href="about.html" class="btn btn-success">About Us</a>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div class="card mb-3 navv" style="max-width: 540px;">
-                        <div class="row no-gutters">
-                          <div class="col-md-4">
-                            <img src="assets/brand/logo-nacoss-fulafia.jpg" class="card-img-top rounded-circle" width="50px" height="50px" alt="...">
-                            <a href="#" target="_blank" ><i class="fa fa-facebook iconz"></i></a><br>
-                            <a href="#" ><i class="fa fa-twitter  iconz"></i></a><br>
-                          </div>
-                          <div class="col-md-8">
-                            <div class="card-body">
-                              <h5 class="card-title" style="font-size: 20px; font-weight: bolder; text-transform: uppercase;">About us — NACOSS | FULafia</h5>
-                              <p class="card-text">NACOSS FULafia is the NACOSS Chapter for students studying Computer Science in Federal University of Lafia. 
-                                    NACOSS FULafia started out in the 2016/2017 session with Comr. Success Emmanuel Ibrahim as the Pioneer President. 
-                                    And the association in its totality has experience tremendous growth ever since.     </p>
-                              <a href="about.html" class="btn btn-success">Go somewhere</a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+             
 
                   
     
       </div>
       <div class="col">
-            <div class="card mb-3 navv-t" style="max-width: 540px;">
+            <div class="card mb-3 navv-t" style="max-width: 100%;">
                     <div class="row no-gutters">
                       <div class="col-md-4">
-                        <img src="assets/gallery/excos/president.jpg" class="card-img" alt="...">
-                        <a href="#" target="_blank" ><i class="fa fa-facebook iconz"></i></a><br>
-                                                    <a href="#" target="_blank" ><i class="fa fa-instagram  iconz"></i></a><br>
-                                                    <a href="#" target="_blank" ><i class="fa fa-github  iconz"></i></a><br>
-                                                    <a href="#" ><i class="fa fa-twitter  iconz"></i></a><br>
-                      </div>
+                        <img class="hero" style="padding: 20px;" src="assets/gallery/excos/president.jpg" width="250px" height="257px"  alt="...">
+                       </div>
                       <div class="col-md-8">
                         <div class="card-body">
                           <h5 class="card-title" style="font-size: 20px; font-weight: bolder; text-transform: uppercase;">Message from the President</h5>
                           <p class="card-text"> Welcome to the official website of the NACOSS FULafia Chapter and thank you for taking the time to learn more about us. 
-                                Every association has its canon. Ours is a community centred around the academic, social and overall wellbeing of our members-students of the department of Computer Science, Federal University of Lafia. 
-                                Our association is a family of computer science students; regardless of religious, ethnic and ancestral background. As a member of this association, you a guaranteed a ‘WOW’ time on campus 
-                                as we are  committed to getting you the best experience academically, socially and otherwise. 
-                                Our website contains many resources for you to learn about us and to also reach out to us. I encourage you to visit our departmental building on campus, meet our students and staff, and see for yourself 
-                                the outstanding opportunities, activities that NACOSS FULafia offers.&quot; <br> &mdash; Comr. Zinwota Timothy <i>(President NACOSS FULafia)</i></p></p>
-                                <a href="about.html" class="btn btn-success">Go somewhere</a>
+
                         </div>
                       </div>
                     </div>

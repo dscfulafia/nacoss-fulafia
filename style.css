@@ -73,14 +73,7 @@ body {
     }
 
     .navv{
-      margin-left: 100px;
       padding: 20px;
-    }
-
-    .navv-t{
-      
-      padding: 20px;
-      padding-right: 20px;
     }
 .mx-auto{
   width: 700px;
@@ -183,34 +176,7 @@ margin-bottom: 15px;
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d61b85', endColorstr='#a200ed',GradientType=1 ); }
 
  
-  .container {
-    position: relative;
-    max-width: 100%;
-    padding-right: 0;
-    padding-left: 0;
-    margin-right: auto;
-    margin-left: auto;
-}
-  .container img {
- vertical-align: middle;
- width: 100%;
- height: auto;
-  }
   
-  .container .content {
-    position: absolute;
-    bottom: 0;
-    background: rgb(0, 0, 0); /* Fallback color */
-    background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
-    color: #f1f1f1;
-    width: 100%;
-  
- 
-  }
-
-  .content{
-    padding: 20px;
-  }
 
 @media (min-width: 40em) {
   .carousel-caption p {
@@ -276,7 +242,6 @@ margin-bottom: 15px;
       }
      p{
        line-height: 30px;
-       font-size: medium;
        font-weight: lighter;
      }
 @media only screen and (min-device-width: 320px) and (max-device-width: 667px) and (orientation: landscape) {
@@ -290,3 +255,34 @@ padding: 0;
   }
 /*# sourceMappingURL=style.css.map */
 
+
+}
+
+.container {
+  position: relative;
+  max-width: 100%;
+  padding-right: 0;
+  padding-left: 0;
+  margin-right: auto;
+  margin-left: auto;
+}
+.container .hero-b {
+  vertical-align: middle;
+width: 100%;
+height: 599px;
+}
+
+.container .content {
+  position: absolute;
+  bottom: 0;
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+  color: #f1f1f1;
+  width: 100%;
+
+
+}
+
+.content{
+  padding: 20px;
+}
