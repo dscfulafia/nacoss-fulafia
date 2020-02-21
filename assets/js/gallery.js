@@ -7,11 +7,26 @@ var example1=new Vue({
       errored: false
     }
   },
+  // methods:{
+  //   getImage (link) {
+      
+
+  //     link.match('<img src\s*=\s*\\*"(.+?)\\*"\s*/>')
+  //         .match((img)=>{
+  //           console.log(img)
+  //         })
+
+  // }
+
+    
+
+  // },
   mounted () {
     axios
       .get(API_URL + '?call=getpage&page=gallery')
       .then(response => {
         this.gallery = response.data.data.body
+    
         this.errored =  response.data.data.errorExist
       })
       .catch(error => {
